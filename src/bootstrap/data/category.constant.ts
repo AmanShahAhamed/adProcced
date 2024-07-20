@@ -1,4 +1,4 @@
-type TCATEGORY = { [key: string]: string[] };
+export type TCATEGORY = { [key: string]: string[] };
 export const CATEGORY: TCATEGORY = {
   "Digital Items": [
     "Websites",

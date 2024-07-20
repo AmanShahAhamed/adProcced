@@ -8,7 +8,7 @@ export const GET = async (_req: Request) => {
     return Response.json(
       {
         success: true,
-        category,
+        data: category,
         message: "Data fetched successfully",
       },
       { status: 201 }
