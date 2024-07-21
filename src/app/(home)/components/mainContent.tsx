@@ -2,7 +2,9 @@ import { Col, Row } from "antd";
 import Breadcrumb from "antd/lib/breadcrumb";
 import { Content } from "antd/lib/layout/layout";
 import AddInfo from "./addInfo";
-import { ICategory, ICountry, TMutant } from "@/app/store/utilStore";
+import { ICategory, ICountry } from "@/app/store/utilStore";
+import SubCategoryDescription from "./subCategoryDesc";
+import { PRIMARY_COLOR } from "@/app/helper/helperConstant";
 
 const routerList = ["Home", "List", "App"];
 
@@ -13,7 +15,7 @@ export interface IStoreProps {
 
 const MainContent: React.FC<IStoreProps> = ({ category, country }) => {
   return (
-    <Content style={{ padding: "0 48px" }}>
+    <Content style={{ padding: "0 10rem" }}>
       <Breadcrumb
         style={{ margin: "16px 0" }}
         items={routerList.map((route) => ({ title: route }))}
@@ -31,14 +33,43 @@ const MainContent: React.FC<IStoreProps> = ({ category, country }) => {
             <AddInfo category={category} country={country} />
           </Col>
           <Col span={16} style={commonStyle}>
-            col2
+            <SubCategoryDescription category={category} country={country} />
           </Col>
           <Col span={4} style={lastColStyle}>
-            col3
+            <CountryList
+              country={country.filter((country) => country?.states.length)}
+            />
           </Col>
         </Row>
       </div>
     </Content>
+  );
+};
+
+const CountryList: React.FC<{ country: ICountry[] }> = ({ country }) => {
+  const listStyle: React.CSSProperties = {
+    fontSize: "1rem",
+    // color: PRIMARY_COLOR,
+    fontWeight: "bold",
+    padding: 10,
+  };
+  return (
+    <ul
+      style={{
+        listStyle: "none",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {country?.map((country) => (
+        <li style={listStyle} key={country._id}>
+          {country.name}
+        </li>
+      ))}
+      <li style={listStyle}>Other Countries</li>
+    </ul>
   );
 };
 

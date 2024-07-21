@@ -30,12 +30,11 @@ const SearchAdd: React.FC<IStoreProps> = ({ category, country }) => {
         <Input size="large" />
         <CustomDropdown items={dropdownItems} placeHolder="Select Category" />
         <Button
-          type="primary"
           size="middle"
           icon={<SearchOutlined />}
           style={{ float: "right" }}
         >
-          Search
+          GO
         </Button>
       </div>
     </>

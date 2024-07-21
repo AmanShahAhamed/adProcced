@@ -1,5 +1,4 @@
 import { Image } from "antd";
-import logo from "../../../../public/images/logo.png";
 
 const CustomHeader: React.FC = () => {
   return (
