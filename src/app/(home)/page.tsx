@@ -27,7 +27,6 @@ const Home = async () => {
   const country = await getCountry();
   return (
     <>
-      <CustomHeader />
       <MainContent category={category} country={country} />
     </>
   );
