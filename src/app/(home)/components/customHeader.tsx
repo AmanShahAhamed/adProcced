@@ -1,5 +1,5 @@
-import { Flex, Image } from "antd";
-import Link from "next/link";
+import Anchor from "@/app/components/anchor";
+import { Flex, Image, Space } from "antd";
 
 const CustomHeader: React.FC = () => {
   return (
@@ -16,12 +16,14 @@ const CustomHeader: React.FC = () => {
           preview={false}
         />
       </div>
-      <Link
-        href={"/"}
-        style={{ fontSize: "2rem", color: "black", marginTop: "1.5rem" }}
-      >
-        Post Free Add
-      </Link>
+      <Space>
+        <li>
+          <Anchor title="Home" url="/" style={listStyle} />
+        </li>
+        <li>
+          <Anchor title="Post Free Ad" url="/" style={listStyle} />
+        </li>
+      </Space>
     </Flex>
   );
 };
@@ -29,6 +31,10 @@ const CustomHeader: React.FC = () => {
 const headerStyle: React.CSSProperties = {
   height: "9.5rem",
   lineHeight: "64px",
+};
+const listStyle: React.CSSProperties = {
+  fontSize: "1.2rem",
+  fontWeight: "bold",
 };
 
 export default CustomHeader;

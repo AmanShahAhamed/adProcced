@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import AddInfo from "./addInfo";
 import { ICategory, ICountry } from "@/app/store/utilStore";
 import SubCategoryDescription from "./subCategoryDesc";
+import Anchor from "@/app/components/anchor";
 
 export interface IStoreProps {
   country: ICountry[];
@@ -27,11 +28,6 @@ const MainContent: React.FC<IStoreProps> = ({ category, country }) => {
 };
 
 const CountryList: React.FC<{ country: ICountry[] }> = ({ country }) => {
-  const listStyle: React.CSSProperties = {
-    fontSize: "1rem",
-    fontWeight: "bold",
-    padding: 10,
-  };
   return (
     <ul
       style={{
@@ -43,13 +39,19 @@ const CountryList: React.FC<{ country: ICountry[] }> = ({ country }) => {
       }}
     >
       {country?.map((country) => (
-        <li style={listStyle} key={country._id}>
-          {country.name}
+        <li key={country._id} style={countryStyle}>
+          <Anchor title={country.name} />
         </li>
       ))}
-      <li style={listStyle}>Other Countries</li>
+      <li>
+        <Anchor title={"Other Countries"} />
+      </li>
     </ul>
   );
+};
+
+const countryStyle: React.CSSProperties = {
+  color: "black",
 };
 
 const commonStyle = {

@@ -1,3 +1,4 @@
+import Anchor from "@/app/components/anchor";
 import { PRIMARY_COLOR } from "@/app/helper/helperConstant";
 import { ICategory } from "@/app/store/utilStore";
 import { FolderOutlined } from "@ant-design/icons";
@@ -19,31 +20,26 @@ const IConsSubCategory: React.FC<IProps> = ({ category }) => {
           height={50}
         />
 
-        <Link
+        <Anchor
+          title={category.name}
           style={{
             marginTop: 10,
             marginBottom: 20,
             fontSize: "1.5rem",
             fontWeight: "bold",
-            color: PRIMARY_COLOR,
           }}
-        >
-          {category.name}
-        </Link>
+        />
       </Space>
       <ul
         style={{
           listStyle: "none",
           fontSize: "1rem",
-          // fontWeight: "bold",
           marginLeft: "3.5rem",
         }}
       >
         {category?.subCategory?.map((sub) => (
           <li key={sub._id} style={{ marginTop: 5 }}>
-            <a href="#" style={{ color: PRIMARY_COLOR }}>
-              {sub.name}
-            </a>
+            <Anchor title={sub.name} />
           </li>
         ))}
       </ul>

@@ -1,19 +1,20 @@
-import Link from "antd/es/typography/Link";
+"use client";
+import React, { useState } from "react";
+import css from "./anchor.module.css";
+import Link from "next/link";
 
 interface IProps {
   title: string;
   url?: string;
-  isStrong?: boolean;
+  style?: React.CSSProperties;
 }
-const Anchor: React.FC<IProps> = ({ title, url, isStrong }) => {
-  const style: React.CSSProperties = {
-    color: "#039",
-    fontWeight: isStrong ? "bold" : "",
-    fontSize: isStrong ? "1.1rem" : "1rem",
-  };
+
+const Anchor: React.FC<IProps> = ({ title, url, style }) => {
+  const [hover, setHover] = useState(false);
+  console.log(hover);
   return (
-    <Link className="hoverStyle" style={style} href={url ?? "#"}>
-      {title}{" "}
+    <Link href={url || ""} className={css.hover_effect} style={style}>
+      {title}
     </Link>
   );
 };

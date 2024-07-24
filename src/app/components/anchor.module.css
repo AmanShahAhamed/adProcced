@@ -1,0 +1,10 @@
+.hover_effect {
+    font-weight: 550;
+    font-size: 1rem;
+    color: #039;
+}
+
+.hover_effect:hover {
+    color: goldenrod   ;
+    text-decoration: underline;
+}

@@ -8,6 +8,7 @@ import { FolderOpenOutlined } from "@ant-design/icons";
 import IConsSubCategory from "./iconsSubCategory";
 import { Col, Row } from "antd";
 import { ICategory } from "@/app/store/utilStore";
+import Anchor from "@/app/components/anchor";
 
 const ADD_FEATURES = [
   "No sign up required. Post ad without Registration.",
@@ -39,7 +40,7 @@ const SubCategoryDescription: React.FC<IStoreProps> = ({
         </li>
       ))}
 
-      <Link
+      {/* <Link
         style={{
           marginTop: 10,
           marginBottom: 20,
@@ -49,7 +50,16 @@ const SubCategoryDescription: React.FC<IStoreProps> = ({
         }}
       >
         Click Here to Post Free Add now.
-      </Link>
+      </Link> */}
+      <Anchor
+        title="Click Here to Post Free Ad now"
+        style={{
+          marginTop: 10,
+          marginBottom: 20,
+          fontSize: "2rem",
+          fontWeight: "bold",
+        }}
+      />
 
       <Row gutter={[16, 16]} style={{ margin: 20 }}>
         {category
